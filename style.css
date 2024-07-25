@@ -1,0 +1,89 @@
+body {
+    background: rgb(75,113,73);
+    background: linear-gradient(90deg, rgba(75,113,73,1) 10%, rgba(0,255,7,1) 53%, rgba(53,120,56,1) 99%);
+    padding: 0;
+    text-decoration: none;
+}
+
+
+nav{
+    border: none;
+    width: 505px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+    align-items: center; 
+    margin-top: 10px;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.329);
+    filter: blur(50%); 
+} 
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+} 
+
+button#btn-principal{
+    margin: 0 auto;
+    width: 126px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.726);
+    background-color: rgba(255, 255, 255, 0.726);
+    filter: blur(20%); 
+    cursor: pointer;
+    text-align: center;
+} 
+
+button#btn-principal:hover{
+    width: 200px;
+    transition: 0.8s;
+}
+
+.img-fundo{
+    display: cover; 
+    width: 100vh;
+    margin: 0;
+
+}
+
+.card{
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    width: 210px;
+    height: 310px;
+    border: 1px solid black;
+    border-radius: 20px; 
+    background-color: white
+    
+} 
+
+.card h1{
+    color: rgb(73, 73, 73);
+    justify-content: center;
+    margin-top: 12px;
+    text-decoration: none; 
+    text-decoration-line: underline; 
+    text-decoration: none;
+}
+.card img{
+    margin-top: 3px;
+    width: 200px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.card:hover{
+    box-shadow: white 0px 5px 30px 10px;
+    transition: 0.6s;
+} 
+
+.card h1:hover{
+    color: black;
+    cursor: pointer;
+    
+}

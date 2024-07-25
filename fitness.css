@@ -1,0 +1,55 @@
+body {
+    background-image: url('imagens/fundo-mulher.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav{
+    border: none;
+    width: 505px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+    align-items: center; 
+    margin-top: 10px;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.329);
+    filter: blur(50%); 
+} 
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+} 
+
+button#btn-principal{
+    margin: 0 auto;
+    width: 126px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.726);
+    background-color: rgba(255, 255, 255, 0.726);
+    filter: blur(20%); 
+    cursor: pointer;
+    text-align: center;
+} 
+
+button#btn-principal:hover{
+    width: 200px;
+    transition: 0.8s;
+}
+
+.img-fundo{
+    display: cover; 
+    width: 100vh;
+    margin: 0;
+
+}
+
+

@@ -1,0 +1,91 @@
+body{
+    background-image: url(imagens/img-sono.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Raleway", sans-serif;
+
+
+}
+
+nav{
+    font-family: "Raleway", sans-serif;
+
+    border: none;
+    width: 505px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+    align-items: center; 
+    margin-top: 10px;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.329);
+    filter: blur(50%); 
+} 
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-family: "Raleway", sans-serif;
+
+} 
+
+button#btn-principal{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    width: 126px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.726);
+    background-color: rgba(255, 255, 255, 0.726);
+    filter: blur(20%); 
+    cursor: pointer;
+    text-align: center;
+} 
+
+button#btn-principal:hover{
+    width: 200px;
+    transition: 0.8s;
+}
+
+.card1{
+    width: 500px;
+    height: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.753);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.514);
+    filter: blur(20%);
+    margin-top: 50px;
+    margin-left: 30px;
+}  
+
+.card2{ 
+    text-align: center;
+    width: 500px;
+    height: 40px;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: rgba(255, 255, 255, 0.637); 
+    filter: blur(20%); 
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+} 
+h1{
+    margin-top: -40px;
+    margin-left: 30px;
+}
+
+.btn-sono{
+    text-align: center;
+    width: 500px;
+    height: 40px;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: rgba(255, 255, 255, 0.637); 
+    filter: blur(20%); 
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: pointer; 
+} 

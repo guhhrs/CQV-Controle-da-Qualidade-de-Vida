@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfico de Horas de Sono</title>
+  <link rel="stylesheet" href="monitorarSono.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Incluindo Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="monitorarSono.js"></script>
+  <style>
+    body {
+        font-family: "Raleway", sans-serif;
+        margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    input[type="number"], select {
+      margin: 5px;
+    }
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+    <button class="btn-voltar" onclick="navigateTo('sono.html')">Voltar</button>
+
+    <div id="container">
+    <h1>Registro de Horas de Sono</h1>
+    <form id="sleepForm">
+      <label for="sleepDay">Dia da Semana:</label>
+      <select id="sleepDay" name="sleepDay">
+        <option value="0">Segunda</option>
+        <option value="1">Terça</option>
+        <option value="2">Quarta</option>
+        <option value="3">Quinta</option>
+        <option value="4">Sexta</option>
+        <option value="5">Sábado</option>
+        <option value="6">Domingo</option>
+      </select>
+      <label for="sleepHours">Horas de Sono:</label>
+      <input type="number" id="sleepHours" name="sleepHours" min="0" max="24" step="0.1" required>
+      <button class="adicionar" type="submit">Adicionar</button>
+    </form>
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <p id="sleepQuality"></p>
+    <p id="averageSleep"></p>
+  </div>
+
+  <script>
+    // Obter o contexto 2D do canvas
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Dados iniciais do gráfico
+    const labels = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
+    const data = new Array(labels.length).fill(0); // Inicializa os dados com 0
+
+    // Criar uma nova instância de Chart
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Horas Dormidas',
+          data: data,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Manipular a submissão do formulário
+    document.getElementById('sleepForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar o envio do formulário padrão
+      const dayIndex = parseInt(document.getElementById('sleepDay').value);
+      const hours = parseFloat(document.getElementById('sleepHours').value);
+      
+      // Adicionar a nova hora de sono no gráfico para o dia selecionado
+      data[dayIndex] = hours;
+      myChart.update();
+      
+      // Atualizar a descrição da qualidade do sono e a média
+      const qualityDescription = getSleepQualityDescription(data);
+      const averageSleep = calculateAverageSleep(data);
+      
+      document.getElementById('sleepQuality').innerText = `Qualidade do Sono: ${qualityDescription}`;
+      document.getElementById('averageSleep').innerText = `Média de Horas de Sono: ${averageSleep.toFixed(1)} horas por dia`;
+    });
+
+    // Função para obter a descrição da qualidade do sono
+    function getSleepQualityDescription(sleepData) {
+      const avgSleep = calculateAverageSleep(sleepData);
+      
+      if (avgSleep < 6) {
+        return 'Sono desregulado';
+      } else if (avgSleep <= 7) {
+        return 'Sono razoável';
+      } else {
+        return 'Sono perfeito';
+      }
+    }
+
+    // Função para calcular a média de horas de sono
+    function calculateAverageSleep(sleepData) {
+      const totalSleep = sleepData.reduce((a, b) => a + b, 0);
+      return totalSleep / sleepData.length;
+    }
+
+    function navigateTo(page) {
+            window.location.href = page;
+        }
+  </script>
+</body>
+</html>

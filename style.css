@@ -1,6 +1,8 @@
 body {
-    background: rgb(75,113,73);
-    background: linear-gradient(90deg, rgba(75,113,73,1) 10%, rgba(0,255,7,1) 53%, rgba(53,120,56,1) 99%);
+    background-image: url(imagens/img-qualidade-de-vida.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    
     padding: 0;
     text-decoration: none;
 }
@@ -58,17 +60,18 @@ button#btn-principal:hover{
     height: 310px;
     border: 1px solid black;
     border-radius: 20px; 
-    background-color: white
+    background-color: rgba(255, 255, 255, 0.541); 
+    filter: blur(30%);
     
 } 
 
+h1{
+    font-family: "Raleway", sans-serif;
+}
 .card h1{
     color: rgb(73, 73, 73);
     justify-content: center;
     margin-top: 12px;
-    text-decoration: none; 
-    text-decoration-line: underline; 
-    text-decoration: none;
 }
 .card img{
     margin-top: 3px;
@@ -86,4 +89,8 @@ button#btn-principal:hover{
     color: black;
     cursor: pointer;
     
+}
+
+a{
+    text-decoration: none;
 }
